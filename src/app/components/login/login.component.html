@@ -1,0 +1,135 @@
+
+<mat-toolbar color="primary" class="mat-elevation-z8">
+    <span><img src="../assets/img/up (9).svg" style="width:50px; height: 50px;"
+            routerLink="/"></span>
+    <a mat-button>Zona Medica</a>
+    <div class="spacer"></div>
+</mat-toolbar>
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="../../../assets/img/login-adminis.svg" alt="Image"
+                    class="img-fluid">
+            </div>
+            <div class="col-md-6 contents">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="mb-4" style="justify-items: center;
+                            justify-content: center; align-items: center;">
+                            <h2><strong>Iniciar Sesión como Admin</strong></h2>
+                            <p class="mb-4">Ingresa tus datos para iniciar
+                                Sesion</p>
+                        </div>
+                        <form [formGroup]="formLoginAdmin">
+
+                            <mat-form-field class="example-full-width input"
+                                style="width: 28em;" appearance="outline">
+                                <mat-label>Correo Electrónico</mat-label>
+                                <input matInput type="email" placeholder="Ejem.
+                                    sofia@gmail.com" formControlName="email"
+                                    style="width: 26em;" class="form-control"
+                                    [ngClass]="{
+                                    'is-invalid':formAdminLogin.email.errors }"
+                                    required/>
+                                <div *ngIf="formAdminLogin.email.errors"
+                                    class="invalid-feedback">
+                                    <div
+                                        *ngIf="formAdminLogin.email.errors.required">El
+                                        correo no puede estar en blanco.</div>
+                                    <!--<div *ngIf="f.email.errors.required">Escriba un email Electrónico</div>-->
+                                    <div
+                                        *ngIf="formAdminLogin.email.errors.email">Ingrese
+                                        un correo válido.</div>
+                                </div>
+                                <mat-icon matSuffix>email</mat-icon>
+                            </mat-form-field>
+
+                            <mat-form-field hintLabel="La contraseña debe tener
+                                8 caracteres o más" class="example-full-width
+                                input" style="width: 28em;"
+                                appearance="outline">
+                                <mat-label>Contraseña</mat-label>
+                                <input matInput placeholder="Escriba su
+                                    contraseña" type="password" style="width:
+                                    29em;" formControlName="password"
+                                    class="form-control" value=""
+                                    [ngClass]="{ 'is-invalid': submitted &&
+                                    formAdminLogin.password.errors }"
+                                    minlength="8" [type]="hideA ? 'password' :
+                                    'text'">
+                                <div *ngIf="submitted &&
+                                    formAdminLogin.password.errors"
+                                    class="invalid-feedback">
+                                    <div
+                                        *ngIf="formAdminLogin.password.errors.required">Escriba
+                                        la contraseña</div>
+                                    <div
+                                        *ngIf="formAdminLogin.password.errors.minlength">La
+                                        contraseña debe tener 8 caracteres o
+                                        más.</div>
+                                </div>
+                                <mat-icon mat-icon-button matSuffix
+                                    (click)="hideA= !hideA"
+                                    [attr.aria-label]="'Hide password'"
+                                    style="cursor: pointer;"
+                                    [attr.aria-pressed]="hideA">{{hideA ?
+                                    'visibility_off' : 'visibility'}}</mat-icon>
+                            </mat-form-field>
+                            <br><br>
+                            <button mat-raised-button style="margin-top: 10px;
+                                margin-right: 5px; width: 15em;" color="primary"
+                                type="button" [disabled]=formLoginAdmin.invalid
+                                (click)="logAdmin()">
+                                Iniciar Sesión
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--MODAL RECUPERAR CONTRASEÑA-->
+<ng-template #restablecerContra let-c="close" let-d="dismiss">
+    <div class="modal-header" style="justify-content: center; align-items:
+        center;">
+        <h4 class="modal-title" id="modal-basic-title"><strong>Reestablecer
+                Contraseña</strong></h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross
+            click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="recuperarContra" class="example-form">
+            <mat-form-field class="example-full-width" style="width: 33em;"
+                appearance="outline">
+                <mat-label>Correo Electrónico</mat-label>
+                <input matInput type="email" placeholder="Ejem. sofia@gmail.com"
+                    formControlName="emailRecu" style="width: 28em;"
+                    class="form-control" [ngClass]="{
+                    'is-invalid':recuContra.emailRecu.errors }" required />
+                <div *ngIf="recuContra.emailRecu.errors"
+                    class="invalid-feedback">
+                    <mat-error *ngIf="recuContra.emailRecu.errors.required">El
+                        correo no puede estar en blanco.
+                    </mat-error>
+
+                    <div *ngIf="recuContra.emailRecu.errors.email">Ingrese un
+                        correo válido.</div>
+                </div>
+                <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <br>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button mat-raised-button class="close" (click)="d('Cross click')">Cerrar</button>
+        <button mat-raised-button color="primary" (click)="rContraexitoso()"
+            [disabled]=recuperarContra.invalid>Reestablecer Contraseña</button>
+    </div>
+</ng-template>

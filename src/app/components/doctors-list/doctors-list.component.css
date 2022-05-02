@@ -1,0 +1,41 @@
+table {
+  width: 100%;
+}
+
+#boton-agregar{
+  right: 45px;
+  bottom: 45px;
+  left: auto;
+  position: absolute;
+}
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  }
+
+  .example-full-width {
+  width: 100%;
+  }
+
+  td, th, thead, mat-cell, mat-header-cel, ng-container, mat-sort-header-content{
+  padding-right: 8px;
+  width: 30 !important;
+  }
+  .tablefilter + label{
+    cursor: pointer;
+    background-color: #666;
+    color: #fff;
+    padding: 3px;
+
+}
+.tablefilter:checked + label{
+    background-color: #111;
+}
+
+.list-doctors-container{
+  overflow-x: scroll;
+  width: 100%;
+}

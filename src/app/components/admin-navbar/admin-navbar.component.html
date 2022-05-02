@@ -1,0 +1,111 @@
+
+
+<div class="navbar navbar-expand-lg navbar-dark navbar-custom" style="width:
+  100%; margin: 0;">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <span><img src="../assets/img/up (9).svg" style="width:50px; height:
+          50px;" routerLink="/inicio-usuario"></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarText" aria-controls="navbarText"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+    <div class="collapse navbar-collapse ml-auto" id="navbarText" style="float:
+      right; margin-right:0; align-items: right; text-align: right;">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">
+            <button mat-button class="menu-buttons"
+              routerLink="/admin/listar-pacientes">
+              <mat-icon class="iconos">home</mat-icon>
+              <span>Inicio</span>
+            </button>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">
+            <mat-list-item [matMenuTriggerFor]="menuCategorias">
+              <button mat-button class="menu-buttons">
+                <mat-icon class="iconos">arrow_drop_down</mat-icon>
+                <span>Categorias Medicas</span>
+              </button>
+            </mat-list-item>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">
+            <mat-menu #menuCategorias="matMenu">
+              <button mat-menu-item class="menu-buttons">Agregar</button>
+              <button mat-menu-item class="menu-buttons">Eliminar</button>
+              <button mat-menu-item class="menu-buttons">Actualizar</button>
+            </mat-menu>
+
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">
+
+            <mat-list-item [matMenuTriggerFor]="menuPatologias">
+              <button mat-button class="menu-buttons">
+                <mat-icon class="iconos">arrow_drop_down</mat-icon>
+                <span>Patologias</span>
+              </button>
+            </mat-list-item>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">
+            <mat-menu #menuPatologias="matMenu">
+              <button mat-menu-item class="menu-buttons">Agregar</button>
+              <button mat-menu-item class="menu-buttons">Eliminar</button>
+              <button mat-menu-item class="menu-buttons">Actualizar</button>
+            </mat-menu>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">
+            <button mat-button class="menu-buttons"
+              routerLink="/admin/listar-doctores">
+              <mat-icon class="iconos">medication</mat-icon>
+              <span>Doctores</span>
+            </button>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">
+            <button mat-button class="menu-buttons"
+              routerLink="/admin/listar-pacientes">
+              <mat-icon class="iconos">groups</mat-icon>
+              <span>Pacientes</span>
+            </button>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">
+            <mat-list-item [matMenuTriggerFor]="menus">
+              <button mat-button class="menu-buttons">
+                <mat-icon class="iconos">arrow_drop_down</mat-icon>
+                <span>Administración</span>
+              </button>
+            </mat-list-item>
+            <mat-menu #menus="matMenu">
+              <button mat-button (click)="logoutAdmin()" class="menu-buttons">
+                <mat-icon class="iconos">logout</mat-icon>
+                <span>Cerrar Sesion</span>
+              </button>
+            </mat-menu>
+          </a>
+        </li>
+      </ul>
+      <a href="/admin/listar-pacientes"><img
+          src="../../../assets/img/profile-admin.svg" style="width:40px;
+          height:40px; border-color: black; border-width: 2px; border-radius:
+          50%;"></a>
+    </div>
+    <!--<a mat-button routerLink="/">Sofia Videa</a>
+    -->
+  </div>
+</div>
